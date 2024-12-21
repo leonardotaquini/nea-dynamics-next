@@ -1,10 +1,8 @@
+'use client';
+
+import dynamic from "next/dynamic";
 import { ContactForm } from "./ContactForm";
-
-
-export const metadata = {
- title: 'Contacto',
- description: 'En esta página podés completar un formulario para que nos pongamos en contacto con vos.',
-};
+const LottieAnimation = dynamic(() => import("./LottieAnimation"), {ssr:false});
 
 export default function ContactPage() {
 
@@ -22,7 +20,7 @@ export default function ContactPage() {
         </section>
       </div>
       <div className="hidden sm:flex sm:justify-center sm:items-center sm:col-span-6 ">
-        Hola
+        <LottieAnimation />
       </div>
     </main>
   );
