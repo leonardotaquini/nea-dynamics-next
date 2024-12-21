@@ -1,8 +1,10 @@
-'use client';
 import { ContactForm } from "./ContactForm";
-import { LottieAnimation } from "./LottieAnimation";
 
 
+export const metadata = {
+ title: 'Contacto',
+ description: 'En esta página podés completar un formulario para que nos pongamos en contacto con vos.',
+};
 
 export default function ContactPage() {
 
@@ -20,7 +22,7 @@ export default function ContactPage() {
         </section>
       </div>
       <div className="hidden sm:flex sm:justify-center sm:items-center sm:col-span-6 ">
-        <LottieAnimation />
+        Hola
       </div>
     </main>
   );
