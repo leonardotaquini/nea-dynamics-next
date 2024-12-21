@@ -1,4 +1,4 @@
-
+'use client';
 import { ContactForm } from "./ContactForm";
 import { LottieAnimation } from "./LottieAnimation";
 
