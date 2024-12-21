@@ -20,7 +20,7 @@ export default function Service() {
         className="w-8 h-8 m-4 cursor-pointer"
         onClick={() => redirect("/services")}
       />
-      <main className="flex-grow grid grid-cols-12 shadow">
+      <main className="flex-grow grid grid-cols-12 shadow font-sans">
         <section className="col-span-12 h-full sm:col-span-6 order-2 hidden sm:flex flex-col items-center justify-center">
           <Image
             src={serviceSelected?.imageUrl || "/placeholder-image.jpg"} // Proveer una imagen por defecto
