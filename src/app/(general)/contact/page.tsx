@@ -3,10 +3,6 @@ import { ContactForm } from "./ContactForm";
 import { LottieAnimation } from "./LottieAnimation";
 
 
-export const metadata = {
- title: 'Contacto',
- description: 'En esta página podés completar un formulario para que nos pongamos en contacto con vos.',
-};
 
 export default function ContactPage() {
 
