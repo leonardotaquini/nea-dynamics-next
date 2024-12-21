@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./shadcn/ui/card";
 
 export interface EmailTemplateProps {
   name: string;
@@ -9,15 +8,15 @@ export interface EmailTemplateProps {
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, phone, email, message }) => (
-  <Card>
-    <CardHeader>
-        <CardTitle>Hola mi nombre es {name}</CardTitle>
-    </CardHeader>
-    <CardContent>
-        <p>{message}</p>
-    </CardContent>
-    <CardFooter>
+  <div>
+    <div>
+        <h1 className="text-blue-500 text-center">Hola mi nombre es {name}</h1>
+    </div>
+    <div className="leading-loose">
+        <p style={{color:'red'}}>{message}</p>
+    </div>
+    <footer className="text-blue text-center">
         <p>Me pueden contactar a través de { email } o a mi número telefónico: {phone}</p>
-    </CardFooter>
-  </Card>
+    </footer>
+  </div>
 );

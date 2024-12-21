@@ -1,15 +1,19 @@
-import { EmailTemplate, EmailTemplateProps } from '@/components/email-template';
+import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
 import * as React from 'react';
+import { NextRequest } from 'next/server';
 
-const resend = new Resend('re_VbFpHY5X_P486r8yStBV4SzsKmcoL9Dn8');
+
+const resend = new Resend(process.env.RESEND_API_KEY as string);
 
 
-export async function POST( email: EmailTemplateProps ) {
+export async function POST(request: NextRequest) {
+  const email = await request.json();
+
   try {
     const { data, error } = await resend.emails.send({
-      from: 'leonardogtaquini@gmail.com',
-      to: ['leonardogtaquini@gmail.com'],
+      from: 'onborading@resend.dev',
+      to: [ process.env.EMAIL as string],
       subject: "Solicitud de contacto",
       react: EmailTemplate(email) as React.ReactElement,
     });

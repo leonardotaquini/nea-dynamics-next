@@ -1,5 +1,4 @@
 'use client'
-import { POST } from "@/app/api/send/route"
 import { Button } from "@/components/shadcn/ui/button"
 import {
   Form,
@@ -13,7 +12,10 @@ import { Input } from "@/components/shadcn/ui/input"
 import { Textarea } from "@/components/shadcn/ui/textarea"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { z } from "zod"
  
 const formSchema = z.object({
@@ -35,6 +37,8 @@ const formSchema = z.object({
 
 export const ContactForm = () => {
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -46,8 +50,25 @@ export const ContactForm = () => {
       })
      
       async function onSubmit(values: z.infer<typeof formSchema>) {
-        const res = await POST(values);
-        console.log(res);
+        setIsLoading(true);
+         const res = await fetch("/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        })
+        if (!res.ok) {
+          setIsLoading(false);
+          toast.error('Error al enviar el mensaje', {
+            className:'bg-red-600 text-white'
+          })
+          return
+        }
+        toast.success('Mensaje enviado con éxito',{
+          className:'bg-green-700 text-white'
+        })
+        setIsLoading(false);
         form.reset()
       }
     
@@ -108,7 +129,9 @@ export const ContactForm = () => {
             </FormItem>
           )}
         />
-        <Button className="p-4 uppercase bg-green-700 text-white w-full" type="submit">Enviar</Button>
+        <Button className="p-4 uppercase bg-green-700 text-white w-full" type="submit">
+          {isLoading ? <Loader2 className="animate-spin"/> : "Enviar"}
+        </Button>
       </form>
     </Form>
   )
