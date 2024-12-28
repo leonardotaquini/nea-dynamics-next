@@ -59,7 +59,7 @@ export default function Service() {
           <span className="text-justify px-4 pb-4 leading-loose">
             {serviceSelected?.motivation}
           </span>
-        <Button className="uppercase px-10 bg-green-600">Contactanos <ArrowRightCircle/></Button>
+        <Button className="uppercase px-10 bg-green-600" onClick={()=> redirect('/contact')}>Contactanos <ArrowRightCircle/></Button>
         </Card>
       </main>
     </div>
