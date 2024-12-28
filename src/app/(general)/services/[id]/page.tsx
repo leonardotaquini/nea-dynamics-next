@@ -1,7 +1,8 @@
 "use client";
+import { Button } from "@/components/shadcn/ui/button";
 import { Card } from "@/components/shadcn/ui/card";
 import { useAppStore } from "@/store/app.store";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRightCircle, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
@@ -28,7 +29,7 @@ export default function Service() {
             className="sm:w-9/12 sm:h-5/6 object-cover rounded-lg"
           />
         </section>
-        <Card className="col-span-12 h-full sm:col-span-6 flex flex-col px-3 items-center justify-center space-y-6">
+        <Card className="col-span-12 h-full sm:col-span-6 flex flex-col px-3 items-center space-y-6">
           <h2 className="text-2xl mt-4 font-medium text-blue-900">
             {serviceSelected?.title}
           </h2>
@@ -58,6 +59,7 @@ export default function Service() {
           <span className="text-justify px-4 pb-4 leading-loose">
             {serviceSelected?.motivation}
           </span>
+        <Button className="uppercase px-10 bg-green-600">Contactanos <ArrowRightCircle/></Button>
         </Card>
       </main>
     </div>
