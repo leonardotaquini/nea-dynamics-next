@@ -29,7 +29,7 @@ export default function Service() {
             className="sm:w-9/12 sm:h-5/6 object-cover rounded-lg"
           />
         </section>
-        <Card className="col-span-12 h-full sm:col-span-6 flex flex-col px-3 items-center space-y-6">
+        <Card className="col-span-12 h-full sm:col-span-6 flex flex-col px-3 items-center space-y-6 py-3">
           <h2 className="text-2xl mt-4 font-medium text-blue-900">
             {serviceSelected?.title}
           </h2>
