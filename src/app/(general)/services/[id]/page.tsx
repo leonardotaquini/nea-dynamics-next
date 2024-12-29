@@ -39,7 +39,7 @@ export default function Service() {
           </span>
           {serviceSelected?.features && serviceSelected.features.length > 0 && (
             <>
-              <ul className="leading-loose">
+              <ul className="leading-loose self-start px-4">
                 {serviceSelected.features.map((feature, index) => (
                   <li
                     key={index}
